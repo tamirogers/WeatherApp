@@ -1,0 +1,51 @@
+th {
+    padding-right: 20px;
+}
+
+h1 {
+    border: 1px solid black;
+    text-align: center;
+}
+
+hr {
+    height: 5px;
+    border: top;
+}
+
+.always {
+    text-align: center;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-image: opacity: 0.2;
+    /*   background-color: black;*/
+    /*   opacity: 0.2;*/
+    /* filter:alpha(opacity=10);*/
+}
+
+#citybuttons {
+    /*	float:  left;*/
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.historyTable {
+    background-color: white;
+    /*	opacity: .5;*/
+  
+    text-decoration-style: bold;
+    border-radius: : 11px;
+     border: 1px solid black;
+}
+
+.city {
+
+	margin-right: 700px;
+
+
+
+}

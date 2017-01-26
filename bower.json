@@ -1,0 +1,29 @@
+{
+  "name": "weatherapp",
+  "homepage": "https://github.com/tamirogers/SanDiegoTopSpots",
+  "authors": [
+    "Tami R <tami1989@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "angular-toastr": "^2.1.1"
+  },
+ "overrides": {
+   "bootstrap": {
+     "main": [
+       "dist/css/bootstrap.css"
+     ]
+   }
+ }
+}

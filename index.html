@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='weatherApp'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherApp </title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+
+    <body background="app/styles/images/rain.jpg" ng-controller='weatherAppController as vm'>
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <!-- endbower -->
+        <div class="container">
+            <h1>Origin Weather Application</h1>
+            <h4 class="always"> Always know if it's going to rain! </h4>
+            <span ng-repeat='item in vm.searchHistory | limitTo:"5" '>
+<button id="citybuttons" ng-click="vm.getapi(item.city)">{{item.city}} </button>
+
+            </span>
+            <div>
+                <label>Search a City </label>
+                <input ng-model='vm.searchCity' />
+                <input type="submit" value="search" ng-click='vm.getapi(vm.searchCity)' />
+            </div>
+            <table>
+                <thead>
+                    <tbody>
+                        <tr>
+                            <th> temperature (F) </th>
+                            <th> pressure </th>
+                            <th> humidity </th>
+                            <th> lowest temp </th>
+                            <th> highest temp </th>
+                            <th> wind speed </th>
+                        </tr>
+                        <hr style="border: none; border-bottom: 1px solid black;">
+          <!--               These expressions have the names in properties in API -->
+                        <tr>
+                            <td> {{vm.weatherResponse.main.temp}}</td>
+                            <td> {{vm.weatherResponse.main.pressure}} </td>
+                            <td> {{vm.weatherResponse.main.humidity}} </td>
+                            <td> {{vm.weatherResponse.main.temp_min}}</td>
+                            <td>{{vm.weatherResponse.main.temp_max}}</td>
+                            <td>{{vm.weatherResponse.wind.speed}}</td>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+            <hr style="border: none; border-bottom: 1px solid black;">
+            <div>
+                <h3 style="text-align: center">search history</h3>
+                <h4 style="text-align: center" class="city"> City </h4>
+                <table class="historyTable">
+                    <thead>
+                        <tbody>
+                            <tr>
+                                <th> </th>
+                            </tr>
+     <!--                        Added item to date expression to get the date to update only in one city.  -->
+                            <tr ng-repeat='item in vm.searchHistory | limitTo:"5" '>
+                                <td> {{item.city}} {{ item.date | date:'yyyy-MM-dd hh:mm:ss a'}}</td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!-- inject:js   custom-->
+        <script src="/app/app.js"></script>
+        <script src="/app/weatherapp.controller.js"></script>
+        <script src="/app/weatherapp.factory.js"></script>
+        <!-- endinject -->
+    </body>
+
+</html>
